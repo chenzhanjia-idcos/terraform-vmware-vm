@@ -68,35 +68,46 @@ variable "dns_server" {
     type = list(string)
 }
 
-# variable "inventory" {
-#     description = "主机组名称"
-#     type = string
-# }
+variable "inventory" {
+    description = "主机组名称"
+    type = string
+}
 
-# variable "rootUsername" {
-#     description = "root用户名"
-#     type = string
-# }
-# variable "rootPassword" {
-#     description = "数据库root密码"
-#     type = string
-# }
-# variable "replicationuser" {
-#     description = "主从复制用户"
-#     type = string
-#     default = "yunji"
-# }
+variable "SoftwareIp" {
+    description = "介质服务器IP"
+    type = string
+    #对于敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
 
-# variable "replicationpassword" {
-#     description = "主从复制用户密码"
-# }
+variable "SoftwarePath" {
+    description = "介质路径"
+    type = string
+    #对于敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
 
-# variable "SoftwareIp" {
-#     description = "介质服务器IP"
-#     type = string
-# }
+variable "rootUsername" {
+    description = "root用户名"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
+variable "rootPassword" {
+    description = "数据库root密码"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
+variable "replicationuser" {
+    description = "主从复制用户"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true    
+}
 
-# variable "SoftwarePath" {
-#     description = "介质路径"
-#     type = string
-# }
+variable "replicationpassword" {
+    description = "主从复制用户密码"
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
