@@ -71,43 +71,38 @@ variable "dns_server" {
 variable "inventory" {
     description = "主机组名称"
     type = string
+    default = "cloudiac"
 }
 
-# variable "SoftwareIp" {
-#     description = "介质服务器IP"
-#     type = string
-#     #对于敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true
-# }
+variable "adminpassword" {
+    description = "主机组名称"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
 
-# variable "SoftwarePath" {
-#     description = "介质路径"
-#     type = string
-#     #对于敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true
-# }
+variable "secretkey" {
+    description = "主机组名称"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
 
-# variable "rootUsername" {
-#     description = "root用户名"
-#     type = string
-#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true
-# }
-# variable "rootPassword" {
-#     description = "数据库root密码"
-#     type = string
-#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true
-# }
-# variable "replicationuser" {
-#     description = "主从复制用户"
-#     type = string
-#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true    
-# }
+variable "mysqluser" {
+    description = "主机组名称"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
 
-# variable "replicationpassword" {
-#     description = "主从复制用户密码"
-#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
-#     sensitive   = true
-# }
+variable "mysqlpassword" {
+    description = "主机组名称"
+    type = string
+    #对于用户/密码敏感变量，添加该参数声明为加密变量。
+    sensitive   = true
+}
+
+variable "DOCKER_REGISTRY" {
+    description = "主机组名称"
+    type = string
+}
