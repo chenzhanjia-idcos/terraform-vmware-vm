@@ -102,11 +102,11 @@ variable "mysqlpassword" {
     sensitive   = true
 }
 
-# variable "DOCKER_REGISTRY" {
-#     description = "主机组名称"
-#     type = string
-# }
 variable "DOCKER_REGISTRY" {
-    description = "是否在线拉取容器镜像，默认是"
-    type        = bool
+    description = "主机组名称"
+    type = string
 }
+# variable "DOCKER_REGISTRY" {
+#     description = "是否在线拉取容器镜像，默认是"
+#     type        = bool
+# }
