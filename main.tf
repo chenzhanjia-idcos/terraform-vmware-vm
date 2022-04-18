@@ -26,6 +26,10 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
+locals {
+  template_disk_count = length(data.vsphere_virtual_machine.template.disks)
+}
+
 resource "vsphere_virtual_machine" "vm" {
   count      = var.instance_number
   name             = var.instance_number > 1  ? format("%s%03d", var.instancename, count.index + 1) : var.instancename
