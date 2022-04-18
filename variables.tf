@@ -73,41 +73,41 @@ variable "dns_server" {
     type = list(string)
 }
 
-variable "inventory" {
-    description = "主机组名称"
-    type = string
-    default = "cloudiac"
-}
+# variable "inventory" {
+#     description = "主机组名称"
+#     type = string
+#     default = "cloudiac"
+# }
 
-variable "adminpassword" {
-    description = "主机组名称"
-    type = string
-    #对于用户/密码敏感变量，添加该参数声明为加密变量。
-    sensitive   = true
-}
+# variable "adminpassword" {
+#     description = "主机组名称"
+#     type = string
+#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
+#     sensitive   = true
+# }
 
-variable "secretkey" {
-    description = "主机组名称"
-    type = string
-    #对于用户/密码敏感变量，添加该参数声明为加密变量。
-    sensitive   = true
-}
+# variable "secretkey" {
+#     description = "主机组名称"
+#     type = string
+#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
+#     sensitive   = true
+# }
 
-variable "mysqluser" {
-    description = "主机组名称"
-    type = string
-    #对于用户/密码敏感变量，添加该参数声明为加密变量。
-    sensitive   = true
-}
+# variable "mysqluser" {
+#     description = "主机组名称"
+#     type = string
+#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
+#     sensitive   = true
+# }
 
-variable "mysqlpassword" {
-    description = "主机组名称"
-    type = string
-    #对于用户/密码敏感变量，添加该参数声明为加密变量。
-    sensitive   = true
-}
+# variable "mysqlpassword" {
+#     description = "主机组名称"
+#     type = string
+#     #对于用户/密码敏感变量，添加该参数声明为加密变量。
+#     sensitive   = true
+# }
 
-variable "DOCKER_REGISTRY" {
-    description = "主机组名称"
-    type = string
-}
+# variable "DOCKER_REGISTRY" {
+#     description = "主机组名称"
+#     type = string
+# }
