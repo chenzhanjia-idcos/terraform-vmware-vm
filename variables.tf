@@ -72,6 +72,7 @@ variable "scsi_controller" {
 
 variable "data_disk_scsi_controller" {
     description = "数据磁盘控制器"
+    type        = list
 }
 
 variable "ips" {
