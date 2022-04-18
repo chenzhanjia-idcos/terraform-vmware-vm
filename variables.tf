@@ -43,9 +43,14 @@ variable "memory" {
     description = "内存"
 }
 
-variable "disk_size" {
+variable "disk_label" {
+    description = "磁盘标签"
+    type        = list(any)
+}
+
+variable "disk_size_gb" {
     description = "磁盘大小"
-    type = string
+    type        = list(any)
 }
 
 variable "ips" {

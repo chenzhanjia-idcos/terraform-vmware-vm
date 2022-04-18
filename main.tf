@@ -45,12 +45,24 @@ resource "vsphere_virtual_machine" "vm" {
   network_interface {
     network_id = data.vsphere_network.network.id
   }
-
-  disk {
-    label = "disk0"
-    size  = var.disk_size
-    eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+  # disk {
+  #   label = "disk0"
+  #   size  = var.disk_size
+  #   eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
+  #   thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+  # }
+  dynamic "disk" {
+        for_each = data.vsphere_virtual_machine.template.disks
+        iterator = template_disks
+        content {
+            label             = length(var.disk_label) > 0 ? var.disk_label[template_disks.key] : "disk${template_disks.key}"
+            size              = var.disk_size_gb != null ? var.disk_size_gb[template_disks.key] : (data.vsphere_virtual_machine.template.disks[template_disks.key].size )
+            //unit_number       = var.scsi_controller != null ? var.scsi_controller * 15 + template_disks.key : template_disks.key
+            unit_number       = template_disks.key
+            thin_provisioned  = data.vsphere_virtual_machine.template.disks[template_disks.key].thin_provisioned
+            eagerly_scrub     = data.vsphere_virtual_machine.template.disks[template_disks.key].eagerly_scrub
+            datastore_id      = data.vsphere_datastore.datastore[0].id
+        }
   }
 
   clone {
