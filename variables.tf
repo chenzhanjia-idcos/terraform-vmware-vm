@@ -47,32 +47,34 @@ variable "disk_label" {
     description = "系统盘标签"
     type        = list(any)
 }
-variable "data_disk_label" {
-    description = "数据盘标签"
-    type        = list(any)
-}
+
 variable "data_disk_size_gb" {
     description = "数据盘大小列表"
     type        = list(any)
 }
 
-variable "thin_provisioned" {
-    description = "数据磁盘是否精简，默认是true"
-    type        = bool
-}
+# variable "data_disk_label" {
+#     description = "数据盘标签"
+#     type        = list(any)
+# }
 
-variable "eagerly_scrub" {
-    description = "数据磁盘空间是否清零，默认是false"
-}
+# variable "thin_provisioned" {
+#     description = "数据磁盘是否精简，默认是true"
+#     type        = bool
+# }
 
-variable "scsi_controller" {
-    description = "系统磁盘控制器"
-}
+# variable "eagerly_scrub" {
+#     description = "数据磁盘空间是否清零，默认是false"
+# }
 
-variable "data_disk_scsi_controller" {
-    description = "数据磁盘控制器"
-    type        = list
-}
+# variable "scsi_controller" {
+#     description = "系统磁盘控制器"
+# }
+
+# variable "data_disk_scsi_controller" {
+#     description = "数据磁盘控制器"
+#     type        = list
+# }
 
 variable "ips" {
     description = "每个虚拟机的ipv4网络地址,每个中间千万不能有空格"
