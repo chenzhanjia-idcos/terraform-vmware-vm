@@ -56,6 +56,24 @@ variable "data_disk_size_gb" {
     type        = list(any)
 }
 
+variable "thin_provisioned" {
+    description = "数据磁盘是否精简，默认是true"
+    type        = bool
+}
+
+variable "eagerly_scrub" {
+    description = "数据磁盘空间是否清零，默认是false"
+    type        = bool
+}
+
+variable "scsi_controller" {
+    description = "系统磁盘控制器"
+}
+
+variable "data_disk_scsi_controller" {
+    description = "数据磁盘控制器"
+}
+
 variable "ips" {
     description = "每个虚拟机的ipv4网络地址,每个中间千万不能有空格"
     type = string
