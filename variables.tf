@@ -63,7 +63,6 @@ variable "thin_provisioned" {
 
 variable "eagerly_scrub" {
     description = "数据磁盘空间是否清零，默认是false"
-    type        = bool
 }
 
 variable "scsi_controller" {
