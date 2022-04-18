@@ -48,7 +48,7 @@ variable "disk_label" {
     type        = list(any)
 }
 
-variable "data_disk_size_gb" {
+variable "disk_size_gb" {
     description = "数据盘大小列表"
     type        = list(any)
 }
