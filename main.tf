@@ -61,7 +61,7 @@ resource "vsphere_virtual_machine" "vm" {
             unit_number       = template_disks.key
             thin_provisioned  = data.vsphere_virtual_machine.template.disks[template_disks.key].thin_provisioned
             eagerly_scrub     = data.vsphere_virtual_machine.template.disks[template_disks.key].eagerly_scrub
-            datastore_id      = data.vsphere_datastore.datastore[template_disks.key].id
+            datastore_id      = data.vsphere_datastore.datastore.id
         }
   }
 
