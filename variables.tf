@@ -44,12 +44,15 @@ variable "memory" {
 }
 
 variable "disk_label" {
-    description = "磁盘标签"
+    description = "系统盘标签"
     type        = list(any)
 }
-
-variable "disk_size_gb" {
-    description = "磁盘大小"
+variable "data_disk_label" {
+    description = "数据盘标签"
+    type        = list(any)
+}
+variable "data_disk_size_gb" {
+    description = "数据盘大小列表"
     type        = list(any)
 }
 
