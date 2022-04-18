@@ -77,15 +77,15 @@ resource "vsphere_virtual_machine" "vm" {
     }
   }
 # 根据用户填写磁盘列表创建多块数据盘
- dynamic "disk" {
-    for_each = var.data_disk_size_gb
-    iterator = terraform_disks
-    content {
-      label = length(var.data_disk_label) > 0 ? var.data_disk_label[terraform_disks.key] : "disk${terraform_disks.key + local.template_disk_count}"
-      size = var.data_disk_size_gb[terraform_disks.key]
-      unit_number = length(var.data_disk_scsi_controller) > 0 ? var.data_disk_scsi_controller[terraform_disks.key] * 15 + terraform_disks.key + (var.scsi_controller == var.data_disk_scsi_controller[terraform_disks.key] ? local.template_disk_count : 0) : terraform_disks.key + local.template_disk_count
-      thin_provisioned = var.thin_provisioned != null ? var.thin_provisioned[terraform_disks.key] : null
-      eagerly_scrub = var.eagerly_scrub != null ? var.eagerly_scrub[terraform_disks.key] : null
+  dynamic "disk" {
+     for_each = var.data_disk_size_gb
+     iterator = terraform_disks
+     content {
+       label = length(var.data_disk_label) > 0 ? var.data_disk_label[terraform_disks.key] : "disk${terraform_disks.key + local.template_disk_count}"
+       size = var.data_disk_size_gb[terraform_disks.key]
+       unit_number = length(var.data_disk_scsi_controller) > 0 ? var.data_disk_scsi_controller[terraform_disks.key] * 15 + terraform_disks.key + (var.scsi_controller == var.data_disk_scsi_controller[terraform_disks.key] ? local.template_disk_count : 0) : terraform_disks.key + local.template_disk_count
+       thin_provisioned = var.thin_provisioned != null ? var.thin_provisioned[terraform_disks.key] : null
+       eagerly_scrub = var.eagerly_scrub != null ? var.eagerly_scrub[terraform_disks.key] : null
     }
   }
 
