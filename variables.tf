@@ -7,10 +7,6 @@ variable "datastore" {
     description = "存储"
     type = string
 }
-variable "domain" {
-    description = "主机域"
-    type = string
-}
 
 variable "resource_pool" {
     description = "资源池名称"
@@ -43,39 +39,6 @@ variable "memory" {
     description = "内存"
 }
 
-variable "disk_label" {
-    description = "系统盘标签"
-    type        = list(any)
-}
-
-variable "disk_size_gb" {
-    description = "数据盘大小列表"
-    type        = list(any)
-}
-
-# variable "data_disk_label" {
-#     description = "数据盘标签"
-#     type        = list(any)
-# }
-
-# variable "thin_provisioned" {
-#     description = "数据磁盘是否精简，默认是true"
-#     type        = bool
-# }
-
-# variable "eagerly_scrub" {
-#     description = "数据磁盘空间是否清零，默认是false"
-# }
-
-# variable "scsi_controller" {
-#     description = "系统磁盘控制器"
-# }
-
-# variable "data_disk_scsi_controller" {
-#     description = "数据磁盘控制器"
-#     type        = list
-# }
-
 variable "ips" {
     description = "每个虚拟机的ipv4网络地址,每个中间千万不能有空格"
     type = string
@@ -95,6 +58,39 @@ variable "dns_server" {
     description = "DNS域名解析"
     type = list(string)
 }
+
+variable "domain" {
+    description = "主机域"
+    type = string
+}
+
+variable "disk_label" {
+    description = "系统盘标签"
+    type        = list
+    default     = []
+}
+
+variable "scsi_controller" {
+  description = "scsi_controller number for the main OS disk"
+  type        = number
+  default     = 0
+}
+variable "data_disk_scsi_controller" {
+  description = "scsi_controller number for the data disk, should be equal to number of defined data disk"
+  type        = list
+  default     = []
+}
+
+variable "data_disk_label" {
+ description = "Storage data disk labels"
+ type = list
+ default = []
+}
+variable "data_disk_size_gb" {
+ description = "List of storage data disk size"
+ type = list
+}
+
 
 # variable "inventory" {
 #     description = "主机组名称"
