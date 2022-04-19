@@ -91,6 +91,17 @@ variable "data_disk_size_gb" {
  type = list
 }
 
+variable "thin_provisioned" {
+  description = "If true,this disk is thin provisioned,with space for the file being allocated on an as-needed basis."
+  type = list
+  default = null
+}
+
+variable "eagerly_scrub" {
+  description = "iif set to true ,the disk space is zeroed out on VM creation.This will delay the creation of the disk or virtual machine.Cannot be set to true when thin_provisioned is true."
+  type = list
+  default = null
+}
 
 # variable "inventory" {
 #     description = "主机组名称"
