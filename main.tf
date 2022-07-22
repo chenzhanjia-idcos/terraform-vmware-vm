@@ -3,7 +3,7 @@ provider "vsphere" {
 }
 
 data "vsphere_datacenter" "dc" {
-  name = var.ldcCode
+  name = var.idc_code
 }
 
 data "vsphere_datastore" "datastore" {
@@ -32,7 +32,7 @@ locals {
 
 resource "vsphere_virtual_machine" "vm" {
   count      = var.instance_number
-  name             = var.instance_number > 1  ? format("%s%03d", var.instancename, count.index + 1) : var.instancename
+  name             = var.instance_number > 1  ? format("%s%03d", var.instance_name, count.index + 1) : var.instance_name
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
   wait_for_guest_net_timeout = 0

@@ -1,4 +1,4 @@
-variable "ldcCode" {
+variable "idc_code" {
     description = "(必填)数据中心"
     type = string
 }
@@ -23,7 +23,7 @@ variable "image" {
     type = string
 }
 
-variable "instancename" {
+variable "instance_name" {
     description = "主机名称"
     type = string
 }
